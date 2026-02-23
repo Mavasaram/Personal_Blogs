@@ -1,0 +1,19 @@
+---
+title: "\"do i need to tell you\""
+date: 2010-11-01
+publishedAt: "2010-11-01T04:09:00.005+01:00"
+labels: ["Honey"]
+originalUrl: "https://mrmohan.blogspot.com/2010/10/do-i-need-to-tell-you.html"
+---
+Calm sunset...Full moon with chilling air...
+long talk about nothing...gentle smile saying everything...
+feel of beloved.feel of belief...
+wakeup call each day..good nite mail every nite..
+ur my wish..ur my luck..ur my dream..
+Queen of my thoughts..You are always in my mind..
+a star came from sky’s..ur always in front of my eyes..
+
+it’s a vacuum without you..it’s 410 am and you cross one more glorious year...
+happy returns of the day honey....
+you said  ..."do i need to tell you"....
+- Mvk
