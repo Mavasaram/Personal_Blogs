@@ -8,50 +8,53 @@ export default function PostCard({ post }: { post: BlogPost }) {
   const excerpt = extractExcerpt(post.content);
 
   return (
-    <article className="group bg-white border border-stone-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all">
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-        <Link href={href} className="flex-1">
-          <h2 className="font-playfair text-lg font-semibold text-stone-900 group-hover:text-emerald-700 transition-colors leading-snug">
-            {post.title}
-          </h2>
-        </Link>
-        <time
-          dateTime={post.publishedAt}
-          className="text-xs text-stone-400 whitespace-nowrap pt-1 shrink-0"
-        >
+    <article className="py-8 border-b border-gray-200 last:border-b-0">
+      {/* Date + Labels */}
+      <div className="flex flex-wrap items-center gap-2 mb-2 text-xs text-gray-500 uppercase tracking-wide">
+        <time dateTime={post.publishedAt}>
           {date.toLocaleDateString('en-US', {
             year: 'numeric',
-            month: 'short',
+            month: 'long',
             day: 'numeric',
           })}
         </time>
+        {post.labels.length > 0 && (
+          <>
+            <span>·</span>
+            {post.labels.slice(0, 3).map((label) => (
+              <span key={label} className="text-accent font-medium">
+                {label}
+              </span>
+            ))}
+          </>
+        )}
       </div>
 
+      {/* Title */}
+      <h2 className="font-playfair text-2xl font-bold mb-3">
+        <Link
+          href={href}
+          className="text-gray-900 hover:text-accent transition-colors"
+        >
+          {post.title}
+        </Link>
+      </h2>
+
+      {/* Excerpt */}
       {excerpt && (
-        <p className="text-sm text-stone-500 leading-relaxed line-clamp-2 mb-3">
+        <p className="text-gray-600 leading-relaxed mb-4 text-[15px]">
           {excerpt}
         </p>
       )}
 
-      <div className="flex items-center justify-between">
-        <div className="flex flex-wrap gap-1.5">
-          {post.labels.slice(0, 4).map((label) => (
-            <span
-              key={label}
-              className="text-xs px-2 py-0.5 bg-stone-100 text-stone-500 rounded-full"
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-        <Link
-          href={href}
-          className="text-xs text-emerald-700 hover:text-emerald-900 transition-colors font-medium shrink-0"
-          aria-label={`Read ${post.title}`}
-        >
-          Read →
-        </Link>
-      </div>
+      {/* Read more */}
+      <Link
+        href={href}
+        className="inline-block text-sm font-semibold text-accent hover:text-accent-dark transition-colors"
+        aria-label={`Read ${post.title}`}
+      >
+        Continue reading →
+      </Link>
     </article>
   );
 }

@@ -2,21 +2,25 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="bg-white border-b border-stone-200 sticky top-0 z-20 backdrop-blur-sm bg-white/95">
-      <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="group">
-          <span className="font-playfair text-xl font-bold text-stone-900 group-hover:text-emerald-700 transition-colors">
+    <header className="bg-white border-b border-gray-200">
+      {/* Top bar with site title */}
+      <div className="max-w-4xl mx-auto px-4 pt-8 pb-4 text-center">
+        <Link href="/" className="group inline-block">
+          <h1 className="font-playfair text-4xl font-bold text-gray-900 group-hover:text-accent transition-colors">
             Curiosity
-          </span>
-          <span className="ml-2 text-xs text-stone-400 italic hidden sm:inline">
+          </h1>
+          <p className="mt-1 text-sm text-gray-500 italic">
             ..to reinvent self
-          </span>
+          </p>
         </Link>
+      </div>
 
-        <nav className="flex items-center gap-5 text-sm text-stone-500">
+      {/* Nav */}
+      <nav className="border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 py-2 flex items-center justify-center gap-6 text-sm text-gray-600">
           <Link
             href="/"
-            className="hover:text-emerald-700 transition-colors"
+            className="py-1 hover:text-accent transition-colors font-medium"
           >
             Home
           </Link>
@@ -24,12 +28,12 @@ export default function Header() {
             href="https://mrmohan.blogspot.com"
             target="_blank"
             rel="noreferrer noopener"
-            className="hover:text-emerald-700 transition-colors"
+            className="py-1 hover:text-accent transition-colors"
           >
-            Original Blog ↗
+            Original Blog
           </a>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
   );
 }

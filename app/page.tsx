@@ -7,13 +7,11 @@ export default async function HomePage() {
   const posts = await fetchAllPosts();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <div className="mb-8">
-        <p className="text-stone-500 text-sm">
-          {posts.length} posts · spanning {getYearRange(posts)}
-        </p>
-      </div>
-      <div className="space-y-5">
+    <div className="max-w-3xl mx-auto px-4 py-10">
+      <p className="text-gray-400 text-sm mb-2">
+        {posts.length} posts · {getYearRange(posts)}
+      </p>
+      <div>
         {posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}

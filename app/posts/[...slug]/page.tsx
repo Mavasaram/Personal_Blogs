@@ -38,17 +38,15 @@ export default async function PostPage({ params }: Props) {
       {/* Back link */}
       <Link
         href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-emerald-700 transition-colors mb-8"
+        className="inline-block text-sm text-gray-500 hover:text-accent transition-colors mb-8"
       >
         ← All posts
       </Link>
 
       {/* Header */}
-      <header className="mb-10">
-        <h1 className="font-playfair text-4xl font-bold text-stone-900 leading-tight mb-4">
-          {post.title}
-        </h1>
-        <div className="flex flex-wrap items-center gap-3 text-sm text-stone-500">
+      <header className="mb-10 pb-6 border-b border-gray-200">
+        {/* Date + labels */}
+        <div className="flex flex-wrap items-center gap-2 mb-3 text-xs text-gray-500 uppercase tracking-wide">
           <time dateTime={post.publishedAt}>
             {publishedDate.toLocaleDateString('en-US', {
               year: 'numeric',
@@ -58,33 +56,32 @@ export default async function PostPage({ params }: Props) {
           </time>
           {post.labels.length > 0 && (
             <>
-              <span aria-hidden>·</span>
-              <div className="flex flex-wrap gap-1.5">
-                {post.labels.map((label) => (
-                  <span
-                    key={label}
-                    className="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-medium"
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
+              <span>·</span>
+              {post.labels.map((label) => (
+                <span key={label} className="text-accent font-semibold">
+                  {label}
+                </span>
+              ))}
             </>
           )}
           {post.originalUrl && (
             <>
-              <span aria-hidden>·</span>
+              <span>·</span>
               <a
                 href={post.originalUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="text-xs hover:text-emerald-700 transition-colors"
+                className="hover:text-accent transition-colors"
               >
                 Original ↗
               </a>
             </>
           )}
         </div>
+
+        <h1 className="font-playfair text-4xl font-bold text-gray-900 leading-tight">
+          {post.title}
+        </h1>
       </header>
 
       {/* Content */}
@@ -94,7 +91,7 @@ export default async function PostPage({ params }: Props) {
       />
 
       {/* Comments */}
-      <div className="mt-16 pt-8 border-t border-stone-200">
+      <div className="mt-16 pt-8 border-t border-gray-200">
         <Comments />
       </div>
     </article>
